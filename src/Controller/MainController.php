@@ -18,7 +18,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/about_us', name: 'main_home')]
+    #[Route('/about_us', name: 'main_about_us')]
 
     public function about_us(): Response
     {
