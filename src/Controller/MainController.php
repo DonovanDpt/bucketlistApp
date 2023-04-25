@@ -9,10 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/home', name: 'main_home')]
+
     public function home(): Response
     {
+        $date = date('Y');
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'MainController',
+            'date' => $date,
         ]);
     }
 }

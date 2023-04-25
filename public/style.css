@@ -12,9 +12,10 @@ header {
     padding-bottom: 5px;
 }
 
-body {background-color:  #FFE5CA;
+body {
+    background-color:  #FFE5CA;
     margin : 0%;
-    padding-bottom : 0%;
+    padding : 0%;
 }
 
 footer {
