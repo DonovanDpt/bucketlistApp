@@ -5,7 +5,13 @@
 {% block header %}
     <div class="example-wrapper">
         <h1><img src="{{ asset('image/logo-512.png') }}" alt="" class="logobucket">Bucket-List</h1>
-        <p>Home</p>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 {% endblock %}
@@ -16,15 +22,16 @@
 
 
     <div>
-        <p>Ceci est la page d'accueil !</p>
+        <h2>Ceci est la page d'accueil !</h2>
     </div>
 
 </div>
 {% endblock %}
 
 {% block footer %}
-    <div class="example-wrapper">
-        <p>&copy Bucket-list</p>
-        <p>{{ date }}</p>
+    <div class="example-wrapper" id="divfooter">
+        <div><p>&copy Bucket-list</p></div>
+
+        <div><p>{{ date }}</p></div>
     </div>
 {% endblock %}

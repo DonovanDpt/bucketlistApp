@@ -7,17 +7,40 @@
 .logobucket {width: 2rem; }
 
 header {
-    background-color:  #E74646;
+    background-color:  #9384D1;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 body {
-    background-color:  #FFE5CA;
+    background-color:  #FFEBEB;
     margin : 0%;
-    padding : 0%;
 }
 
+
+ul>li{
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+
+    color: blue;
+}
+
+
 footer {
-    background-color: #FA9884;
+    margin-top: 35%;
+    padding-bottom: 5px;
+    background-color: #9384D1;
+}
+
+#divfooter {
+    display: flex;
+    justify-content: center;
+
 }
