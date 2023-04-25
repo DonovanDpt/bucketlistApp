@@ -22,7 +22,7 @@ class MainController extends AbstractController
 
     public function about_us(): Response
     {
-
+        $json = file_get_contents("../data/team.json");
         return $this->render('home/about_us.html.twig', [
 
         ]);
