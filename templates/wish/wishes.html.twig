@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-
+{% block list %}
+    <a href="{{ path('wish_wisheswish_list') }}">List</a>
 {% endblock %}
 
-{% block title %}
-
+{% block detail %}
+    <a href="{{ path('wish_wisheswish_detail') }}">Detail</a>
 {% endblock %}
-

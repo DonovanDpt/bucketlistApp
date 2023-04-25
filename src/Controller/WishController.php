@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/wish', name: 'wish_wishes')]
 class WishController extends AbstractController
 {
-    #[Route('/', name: 'wish_wishes')]
+    #[Route('/', name: 'wish_wish')]
     public function wishes(): Response
     {
         return $this->render('wish/wishes.html.twig', [
