@@ -3,20 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="shortcut icon" href="{{ asset('image/favicon.png') }}" type="image/x-icon">
         <link rel="icon" href="">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
 
     </head>
-    <header>
-        {% block header %}{% endblock %}
-    </header>
+
     <body>
+        <header>
+            <div class="example-wrapper">
+                <h1><img src="{{ asset('image/logo-512.png') }}" alt="" class="logobucket">Bucket-List</h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="">Home</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+
+        </main>
         {% block body %}{% endblock %}
+
+        <footer>
+            <div class="example-wrapper" id="divfooter">
+                <div><p>&copy Bucket-list {{ date }}</p></div>
+
+            </div>
+        </footer>
     </body>
-    <footer>
-        {% block footer %}{% endblock %}
-    </footer>
+
 </html>

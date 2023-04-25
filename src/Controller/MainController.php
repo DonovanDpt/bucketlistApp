@@ -17,4 +17,14 @@ class MainController extends AbstractController
             'date' => $date,
         ]);
     }
+
+    #[Route('/about_us', name: 'main_home')]
+
+    public function about_us(): Response
+    {
+        $date = date('Y');
+        return $this->render('home/about_us.html.twig', [
+            'date' => $date,
+        ]);
+    }
 }
