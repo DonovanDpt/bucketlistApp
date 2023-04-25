@@ -12,9 +12,9 @@ class MainController extends AbstractController
 
     public function home(): Response
     {
-        $date = date('Y');
+
         return $this->render('home/index.html.twig', [
-            'date' => $date,
+
         ]);
     }
 
@@ -22,9 +22,9 @@ class MainController extends AbstractController
 
     public function about_us(): Response
     {
-        $date = date('Y');
+
         return $this->render('home/about_us.html.twig', [
-            'date' => $date,
+
         ]);
     }
 }

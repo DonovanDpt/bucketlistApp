@@ -19,7 +19,7 @@
                     <ul>
                         <li>
                             <a href="/">Home</a>
-                            <a href="/wish"></a>
+                            <a href="/wish">All wishes</a>
                             <a href="/about_us">About us</a>
                         </li>
                     </ul>
@@ -33,7 +33,7 @@
 
         <footer>
             <div class="example-wrapper" id="divfooter">
-                <div><p>&copy Bucket-list {{ date }}</p></div>
+                <div><p>&copy Bucket-list {{ 'now' | date('Y') }}</p></div>
 
             </div>
         </footer>
