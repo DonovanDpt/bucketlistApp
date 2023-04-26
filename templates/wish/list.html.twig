@@ -3,8 +3,11 @@
 
 {% block list %}
     <a href="{{ path('wish_list') }}">List</a>
+    {% for wish in tabDeSeries %}
+        <a href="{{ path('wish_detail', {'wish': wish.id}) }}">
+            <p>{{ wish.title }}</p>
+        </a>
+    {% endfor %}
+
 {% endblock %}
 
-{% block detail %}
-    <a href="{{ path('wish_detail') }}">Detail</a>
-{% endblock %}

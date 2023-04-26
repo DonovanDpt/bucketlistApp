@@ -6,7 +6,7 @@
             <li>{{ value.firstname }}</li>
             <li>{{ value.lastname }}</li>
             <li>{{ value.dateOfBirth | date('d/m/Y') }}</li>
-            <img src="{{ value.picture }}">
+            <img src="{{ value.picture }}" alt="{{ value.picture }}">
         {% endfor %}
     </ul>
 

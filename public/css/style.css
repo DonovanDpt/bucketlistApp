@@ -38,7 +38,11 @@ footer {
     margin-top: 35%;
     padding-bottom: 5px;
     background-color: #9384D1;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
 }
+
 
 #divfooter {
     display: flex;

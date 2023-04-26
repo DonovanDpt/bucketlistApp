@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Wish;
+use App\Repository\SerieRepository;
+use App\Repository\WishRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,17 +19,25 @@ class WishController extends AbstractController
         ]);
     }
     #[Route('/list', name: '_list')]
-    public function list(): Response
+    public function list(wishRepository $wishRepository): Response
     {
-        return $this->render('wish/list.html.twig', [
-            'controller_name' => 'WishController',
-        ]);
+        $tabDeSeries = $wishRepository->findBy(
+            [],
+            ['id' =>'DESC'],
+        );
+        return $this->render('wish/list.html.twig',
+            compact('tabDeSeries')
+        );
     }
-    #[Route('/detail', name: '_detail')]
-    public function detail(): Response
+    #[Route('/{wish}',
+        name: '_detail',
+        requirements: ["wish" => '\d+'])]
+    public function detail(
+        Wish $wish
+    ): Response
     {
-        return $this->render('wish/detail.html.twig', [
-            'controller_name' => 'WishController',
-        ]);
+        return $this->render('wish/detail.html.twig',
+           compact(var_name: 'wish')
+        );
     }
 }
