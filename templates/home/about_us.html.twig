@@ -1,4 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block body %}
+    <ul>
+        {% for key, value in json2 %}
+            <li>{{ value.firstname }}</li>
+            <li>{{ value.lastname }}</li>
+            <li>{{ value.dateOfBirth | date('d/m/Y') }}</li>
+            <img src="{{ value.picture }}">
+        {% endfor %}
+    </ul>
 
+{% endblock %}
 

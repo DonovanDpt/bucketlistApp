@@ -8,7 +8,7 @@
     "description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, cumque facilis harum id ipsam necessitatibus veniam! Adipisci alias delectus harum impedit ipsum, iste laboriosam natus possimus provident ratione velit voluptatibus? "
   },
   {
-    "firstname": "Astley"
+    "firstname": "Astley",
     "lastname": "Rick",
     "dateOfBirth": "1982-01-01",
     "creatorOf": "Rick Roll",

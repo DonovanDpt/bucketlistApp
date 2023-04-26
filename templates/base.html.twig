@@ -19,7 +19,7 @@
                     <ul>
                         <li>
                             <a href="{{ path('main_home') }}">Home</a>
-                            <a href="{{ path('wish_wisheswish_wish') }}">All wishes</a>
+                            <a href="{{ path('wish_wish') }}">All wishes</a>
                             <a href="{{ path('main_about_us') }}">About us</a>
                             {% block list %}{% endblock %}
                             {% block detail %}{% endblock %}
@@ -29,9 +29,8 @@
             </div>
         </header>
         <main>
-
+            {% block body %}{% endblock %}
         </main>
-        {% block body %}{% endblock %}
 
         <footer>
             <div class="example-wrapper" id="divfooter">
