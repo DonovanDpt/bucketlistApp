@@ -27,4 +27,17 @@ class MainController extends AbstractController
         return $this->render('home/about_us.html.twig',
             compact('json2'));
     }
+/**
+ * Ici se trouve une autre methode de faire que celle juste au dessus,
+ * afin de retirer les variables que l'on utilise une seule fois
+ */
+//    #[Route('/about_us', name: 'main_about_us')]
+//    public function aboutUs(): Response
+//    {
+//        return $this->render('home/about_us.html.twig',
+//            [
+//                'json2' => json_decode(file_get_contents("../data/team.json"))
+//
+//        ];
+//    }
 }
