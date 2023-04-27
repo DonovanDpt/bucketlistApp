@@ -1,8 +1,11 @@
 {% extends 'base.html.twig' %}
 
-
 {% block list %}
     <a href="{{ path('wish_list') }}">List</a>
+{% endblock %}
+
+{% block body %}
+
     {% for wish in tabDeSeries %}
         <a href="{{ path('wish_detail', {'wish': wish.id}) }}">
             <p>{{ wish.title }}</p>
