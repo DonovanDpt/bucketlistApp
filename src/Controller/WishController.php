@@ -57,9 +57,15 @@ class WishController extends AbstractController
         $liste->setDateCreated(new \DateTime());
 
         if ($listeForm->isSubmitted() && $listeForm->isValid()){
-            //methode qui permet d'update en base de donnée
-            $entityManager->persist($liste);
-            $entityManager->flush();
+            try {
+                //methode qui permet d'update en base de donnée
+                $entityManager->persist($liste);
+                $entityManager->flush();
+                $this->addFlash('ok', 'Créé avec succès !');
+            }catch (\Exception $exception) {
+                $this->addFlash('erreur', "Le wish n'a pas été ajouté !");
+            }
+
             return $this->redirectToRoute('wish_list');
         }
 
