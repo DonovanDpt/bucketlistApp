@@ -6,7 +6,7 @@
     <a href="{{ path('wish_list') }}">List</a>
 {% endblock %}
 {% block body %}
-
+        <p>{{ wish.title }}</p>
         <p>{{ wish.author }}</p>
         <p>{{ wish.dateCreated | date }}</p>
         <p>{{ wish.description }}</p>
