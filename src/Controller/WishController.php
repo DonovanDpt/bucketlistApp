@@ -40,4 +40,12 @@ class WishController extends AbstractController
            compact(var_name: 'wish')
         );
     }
+
+    #[Route('/ajouter', name: '_ajouter')]
+    public function ajoutList(): Response
+    {
+        return $this->render('wish/ajouter.html.twig', [
+            'controller_name' => 'WishController',
+        ]);
+    }
 }
