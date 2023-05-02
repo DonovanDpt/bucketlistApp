@@ -10,6 +10,7 @@
         <a href="{{ path('wish_detail', {'wish': wish.id}) }}">
             <p>{{ wish.title }}</p>
         </a>
+        <p>{{ wish.category.name }}</p>
     {% endfor %}
 
 {% endblock %}
