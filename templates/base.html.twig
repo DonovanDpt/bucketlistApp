@@ -10,7 +10,6 @@
 
 
     </head>
-
     <body>
         <header>
             <div class="example-wrapper">
@@ -19,11 +18,26 @@
                     <ul>
                         <li>
                             <a href="{{ path('main_home') }}">Home</a>
-                            <a href="{{ path('wish_wish') }}">All wishes</a>
-                            <a href="{{ path('main_about_us') }}">About us</a>
-                            <a href="{{ path('wish_ajouter') }}">Ajout d'idée</a>
-                            {% block list %}{% endblock %}
+                            {% if is_granted('ROLE_USER') %}
+                                <a href="{{ path('wish_wish') }}">All wishes</a>
+                                <a href="{{ path('main_about_us') }}">About us</a>
+                                <a href="{{ path('wish_ajouter') }}">Ajout d'idée</a>
+                                {% block list %}{% endblock %}
+                            {% endif %}
+
+                            {% if not is_granted('ROLE_USER') %}
+                                <a href="{{ path('app_register') }}">Register</a>
+                            {% endif %}
+
+                            {% if not app.user %}
+                                <a href="{{ path('app_login') }}">Connexion</a>
+                            {% endif %}
                         </li>
+                        {% if app.user %}
+                            <li class="connexionDeco">{{ app.user.pseudo }}</li>
+                            <li class="connexionDeco"><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                        {% endif %}
+
                     </ul>
                 </nav>
             </div>

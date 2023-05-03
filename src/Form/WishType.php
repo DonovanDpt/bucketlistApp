@@ -21,11 +21,7 @@ class WishType extends AbstractType
                     "class" => "formAjout"
                 ]
             ])
-            ->add('author', null, [
-                'attr' => [
-                    "class" => "formAjout"
-                ]
-            ])
+
             ->add('description', null, [
                 'attr' => [
                     "class" => "formAjout"
@@ -36,6 +32,7 @@ class WishType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name'
                 ])
+
             ->add('Ajouter', SubmitType::class,
                 ['label' => 'Ajouter une nouvelle idée']
             );

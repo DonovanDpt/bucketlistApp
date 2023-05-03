@@ -19,8 +19,6 @@ class Wish
     private ?string $title = null;
 
 
-    #[ORM\Column(length: 50)]
-    private ?string $author = null;
 
     #[ORM\Column]
     private ?bool $isPublished = null;
@@ -34,6 +32,13 @@ class Wish
     #[ORM\ManyToOne(inversedBy: 'Whishs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $author = null;
+
+
+
 
     public function getId(): ?int
     {
@@ -53,17 +58,7 @@ class Wish
     }
 
 
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
 
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
 
     public function isIsPublished(): ?bool
     {
@@ -112,4 +107,19 @@ class Wish
 
         return $this;
     }
+
+    public function getAuthor(): ?user
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?user $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+
+
 }

@@ -6,11 +6,14 @@ use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\SerieRepository;
 use App\Repository\WishRepository;
+use App\Services\Alerte;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
 #[Route('/wish', name: 'wish')]
 class WishController extends AbstractController
 {
@@ -25,7 +28,7 @@ class WishController extends AbstractController
     public function list(wishRepository $wishRepository): Response
     {
         $tabDeSeries = $wishRepository->findBy(
-            [],
+            ['author'=> $this->getUser()],
             ['id' =>'DESC'],
         );
         return $this->render('wish/list.html.twig',
@@ -44,13 +47,16 @@ class WishController extends AbstractController
         );
     }
 
+    #[isGranted("ROLE_USER")]
     #[Route('/ajouter', name: '_ajouter')]
     public function ajoutList(
         Request $request,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        Alerte $alerte
     ): Response
     {
         $liste = new Wish();
+        $liste->setAuthor($this->getUser());
         $listeForm = $this->createForm(WishType::class, $liste);
         $listeForm->handleRequest($request);
         $liste->setIsPublished(true);
@@ -60,6 +66,7 @@ class WishController extends AbstractController
             try {
                 //methode qui permet d'update en base de donnée
                 $entityManager->persist($liste);
+                $alerte->envoiMail();
                 $entityManager->flush();
                 $this->addFlash('ok', 'Créé avec succès !');
             }catch (\Exception $exception) {
