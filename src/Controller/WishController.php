@@ -7,6 +7,7 @@ use App\Form\WishType;
 use App\Repository\SerieRepository;
 use App\Repository\WishRepository;
 use App\Services\Alerte;
+use App\Services\Censurator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,7 +53,8 @@ class WishController extends AbstractController
     public function ajoutList(
         Request $request,
         EntityManagerInterface $entityManager,
-        Alerte $alerte
+        Alerte $alerte,
+        Censurator $censurator
     ): Response
     {
         $liste = new Wish();
@@ -64,8 +66,13 @@ class WishController extends AbstractController
 
         if ($listeForm->isSubmitted() && $listeForm->isValid()){
             try {
+                //purifiage
+                $description_purifiee = $censurator->purify($liste->getDescription());
+                $liste->setDescription($description_purifiee);
+
                 //methode qui permet d'update en base de donnée
                 $entityManager->persist($liste);
+
                 $alerte->envoiMail();
                 $entityManager->flush();
                 $this->addFlash('ok', 'Créé avec succès !');
